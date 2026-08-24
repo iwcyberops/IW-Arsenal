@@ -1,15 +1,14 @@
-# ⚡ IW Arsenal (Projects Hub)
+# ⚡ IW Arsenal (The Technical Frontier)
 
-Welcome to the IW Arsenal. This repository contains the actual code, tactical scripts, and monthly projects developed during my transition into an elite hacker.
+Welcome to the weapon systems hub of **IW Cyber Ops**. This repository contains custom-engineered tools, tactical scripts, and high-performance fuzzing harnesses developed during my research journey.
 
-## 🛠️ Monthly Executions
-| Month | Domain | Key Project | Status |
-| :--- | :--- | :--- | :--- |
-| **Aug 2026** | Linux/Bash | Recon-Automation Script | ⏳ In-Progress |
-| **Sep 2026** | Networking | Custom Python Packet Sniffer | 🔴 Pending |
-| **Oct 2026** | Python Mastery | Multi-Client C2 System | 🔴 Pending |
+## 🛠️ Core Projects & Tooling
+- **System Automation**: Bash/Python suites for lab deployment and automated reconnaissance.
+- **Offensive Engineering**: Custom exploit payloads, C2 stubs, and post-exploitation modules.
+- **Vulnerability Discovery**: Implementation of coverage-guided fuzzers and static analysis passes.
+- **Low-Level Labs**: 4-bit CPU datapaths, custom shells, and memory management suites.
 
-## 🚀 Featured Tools
-- **[TBD]**: Future elite tools will be listed here after production-level stability.
+## 🚀 Research Engineering Target
+Transitioning from modular scripting to professional-grade vulnerability research tooling, following a rigorous multi-year implementation plan to master the art of 0-day discovery.
 
-*"A tool is only as dangerous as the logic behind it. I write the logic."*
+*"A tool is only as effective as the logic that drives it. I engineer the logic."*
