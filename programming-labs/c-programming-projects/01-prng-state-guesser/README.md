@@ -63,7 +63,7 @@ The binary implements an interactive console application that seeds the C standa
 ### 2. PRNG Seeding Mechanics (`<stdlib.h>` & `<time.h>`)
 * `time(0)` queries the kernel via the `gettimeofday`/`time` system call and returns the current **Unix Epoch Timestamp** (seconds elapsed since January 1, 1970).
 * `srand(seed)` initializes the internal state register of the C runtime Linear Congruential Generator (LCG).
-* `rand() % 100 + 1` maps the generated 32-bit integer $[0, \text{RAND\_MAX}]$ to the normalized interval $[1, 100]$ via the modulo arithmetic operator.
+* `rand() % 100 + 1` maps the generated 32-bit integer `$[0, \text{RAND\_MAX}]$` to the normalized interval `$[1, 100]$` via the modulo arithmetic operator.
 
 ### 3. Loop Counter Rollback Logic
 ```c
