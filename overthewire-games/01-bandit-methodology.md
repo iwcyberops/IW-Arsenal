@@ -4,6 +4,7 @@
    TRACK: Linux Systems Exploitation & Tactical Wargame Methodology
    MODULE: OverTheWire — Bandit Complete Operational Breakdown (Level 00 to 33)
    DOCUMENT: 01-bandit-methodology.md
+   NOTE: In compliance with OverTheWire guidelines, raw flags are REDACTED.
    ========================================================================= -->
 
 # ⚔️ OverTheWire: Bandit — Complete Tactical Operations Manual
@@ -11,7 +12,7 @@
 > **IW Cyber Ops Arsenal | Offensive Operations & Systems Research**  
 > *Author: Muhammad Imran (@iwcyberops)*  
 > *Target: bandit.labs.overthewire.org | Port: 2220*  
-> *Classification: Operator Field Manual & Methodological Reference*
+> *Classification: Operator Field Manual & Methodological Reference (Flags Redacted)*
 
 ---
 
@@ -55,7 +56,7 @@
 
 ## Level 00 ──> 01: Initial SSH Ingress
 
-* **Objective:** Establish the initial unencrypted secure shell connection to the remote server on non-standard port 2220.
+* **Objective:** Establish the initial secure shell connection to the remote server on non-standard port 2220.
 * **Tactical Logic:** Standard SSH uses port 22. Target requires explicit port targeting (`-p 2220`).
 
 ```bash
@@ -64,8 +65,8 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 
 ```text
-[Captured Flag]: NH2SXmEBLeGWhAxdwpPMAYDWtWhCRJCN (or Level 1 Password below)
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT1_PASSWORD]
 ```
 
 ---
@@ -87,7 +88,8 @@ cat -- -
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT2_PASSWORD]
 ```
 
 ---
@@ -105,7 +107,8 @@ cat --spaces\ in\ this\ filename--
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT3_PASSWORD]
 ```
 
 ---
@@ -122,7 +125,8 @@ cat ./...Hiding-From-You
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT4_PASSWORD]
 ```
 
 ---
@@ -141,7 +145,8 @@ cat ./-file07
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT5_PASSWORD]
 ```
 
 ---
@@ -159,7 +164,8 @@ find inhere/ -type f -size 1033c ! -perm /111 -exec cat {} +
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT6_PASSWORD]
 ```
 
 ---
@@ -174,7 +180,8 @@ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} +
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT7_PASSWORD]
 ```
 
 ---
@@ -189,7 +196,8 @@ grep "millionth" data.txt | awk '{print $2}'
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT8_PASSWORD]
 ```
 
 ---
@@ -204,7 +212,8 @@ sort data.txt | uniq -u
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT9_PASSWORD]
 ```
 
 ---
@@ -219,7 +228,8 @@ strings data.txt | grep "===" | tail -n 1 | awk -F '=' '{print $NF}' | tr -d ' '
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT10_PASSWORD]
 ```
 
 ---
@@ -234,7 +244,8 @@ base64 -d data.txt
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT11_PASSWORD]
 ```
 
 ---
@@ -249,7 +260,8 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT12_PASSWORD]
 ```
 
 ---
@@ -297,7 +309,8 @@ cat data8
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT13_PASSWORD]
 ```
 
 ---
@@ -317,7 +330,8 @@ cat /etc/bandit_pass/bandit14
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT14_PASSWORD]
 ```
 
 ---
@@ -332,7 +346,8 @@ cat /etc/bandit_pass/bandit14 | nc localhost 30000
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT15_PASSWORD]
 ```
 
 ---
@@ -344,12 +359,12 @@ cat /etc/bandit_pass/bandit14 | nc localhost 30000
 
 ```bash
 openssl s_client -connect localhost:30001 -quiet
-# Transmit bandit15 password:
-# REDACTED_PASSWORD
+# Transmit bandit15 password via the TLS stream
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT16_PASSWORD]
 ```
 
 ---
@@ -367,7 +382,7 @@ openssl s_client -connect localhost:30001 -quiet
 nmap -sV -p 31000-32000 localhost
 
 # 2. Transmit credentials to TLS service on Port 31790
-echo "password_text_format" | openssl s_client -connect localhost:31790 -quiet > /tmp/bandit17.key
+echo "<BANDIT_16_PASSWORD>" | openssl s_client -connect localhost:31790 -quiet > /tmp/bandit17.key
 
 # 3. Secure Key Permissions & Connect
 chmod 600 /tmp/bandit17.key
@@ -386,7 +401,8 @@ diff passwords.old passwords.new | grep ">" | awk '{print $2}'
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT18_PASSWORD]
 ```
 
 ---
@@ -401,7 +417,8 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT19_PASSWORD]
 ```
 
 ---
@@ -416,7 +433,8 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT20_PASSWORD]
 ```
 
 ---
@@ -425,19 +443,20 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 
 * **Objective:** Use an SUID binary `./suconnect` that connects to a local network port, validates the current level password, and returns the next level password.
 * **Tactical Logic:**
-  1. Spawn a Netcat listener in the background or secondary terminal sending the `bandit20` password.
+  1. Spawn a Netcat listener in the background sending the current password.
   2. Invoke `./suconnect` pointing to the listener port.
 
 ```bash
 # Terminal 1 / Background Process:
-echo "password_text_format" | nc -lvnp 8080 &
+echo "<BANDIT_20_PASSWORD>" | nc -lvnp 8080 &
 
 # Terminal 2 / Foreground Invocation:
 ./suconnect 8080
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT21_PASSWORD]
 ```
 
 ---
@@ -453,14 +472,14 @@ cat /etc/cron.d/cronjob_bandit22
 
 # 2. Inspect Target Script
 cat /usr/bin/cronjob_bandit22.sh
-# Identifies redirection to: /tmp/t7O6lds9S0RqQh9aMcz6ShxxAoZKFflq
 
 # 3. Read Staged Password
-cat /tmp/t7O6lds9S0RqQh9aMcz6ShxxAoZKFflq
+cat /tmp/<DYNAMIC_TEMP_PATH>
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT22_PASSWORD]
 ```
 
 ---
@@ -473,7 +492,6 @@ cat /tmp/t7O6lds9S0RqQh9aMcz6ShxxAoZKFflq
 ```bash
 # 1. Inspect Cron Logic
 cat /usr/bin/cronjob_bandit23.sh
-# Core line: echo I am user $myname | md5sum | cut -d ' ' -f 1
 
 # 2. Calculate dynamic hash for bandit23
 mytarget=$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
@@ -483,7 +501,8 @@ cat /tmp/$mytarget
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT23_PASSWORD]
 ```
 
 ---
@@ -511,7 +530,8 @@ cat /tmp/iw_pwn/flag.txt
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT24_PASSWORD]
 ```
 
 ---
@@ -523,12 +543,13 @@ cat /tmp/iw_pwn/flag.txt
 
 ```bash
 for pin in {0000..9999}; do
-    echo "password_text $pin"
+    echo "<BANDIT_24_PASSWORD> $pin"
 done | nc localhost 30002 | grep -v "Wrong"
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT25_PASSWORD]
 ```
 
 ---
@@ -552,7 +573,8 @@ cat /etc/bandit_pass/bandit26
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT26_PASSWORD]
 ```
 
 ---
@@ -567,7 +589,8 @@ cat /etc/bandit_pass/bandit26
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT27_PASSWORD]
 ```
 
 ---
@@ -580,13 +603,13 @@ cat /etc/bandit_pass/bandit26
 ```bash
 mkdir /tmp/repo_28 && cd /tmp/repo_28
 git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
-# Password: REDACTED_PASSWORD
 
 cat repo/README.md
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT28_PASSWORD]
 ```
 
 ---
@@ -603,7 +626,8 @@ git log -p -2
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT29_PASSWORD]
 ```
 
 ---
@@ -621,7 +645,8 @@ cat README.md
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT30_PASSWORD]
 ```
 
 ---
@@ -638,7 +663,8 @@ git show secret
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT31_PASSWORD]
 ```
 
 ---
@@ -654,11 +680,11 @@ echo "May I come in?" > key.txt
 git add -f key.txt
 git commit -m "Bypass gitignore"
 git push origin master
-# Password: REDACTED_PASSWORD
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT32_PASSWORD]
 ```
 
 ---
@@ -677,7 +703,8 @@ cat /etc/bandit_pass/bandit33
 ```
 
 ```text
-[Next Level Password]: REDACTED_PASSWORD
+[Flag Status]: RECOVERED
+[Next Level Password]: [REDACTED_BANDIT33_PASSWORD]
 ```
 
 ---
