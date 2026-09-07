@@ -65,7 +65,7 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 ```text
 [Captured Flag]: NH2SXmEBLeGWhAxdwpPMAYDWtWhCRJCN (or Level 1 Password below)
-[Next Level Password]: 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -87,7 +87,7 @@ cat -- -
 ```
 
 ```text
-[Next Level Password]: PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -105,7 +105,7 @@ cat --spaces\ in\ this\ filename--
 ```
 
 ```text
-[Next Level Password]: 7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -122,7 +122,7 @@ cat ./...Hiding-From-You
 ```
 
 ```text
-[Next Level Password]: xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -141,7 +141,7 @@ cat ./-file07
 ```
 
 ```text
-[Next Level Password]: 6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -159,7 +159,7 @@ find inhere/ -type f -size 1033c ! -perm /111 -exec cat {} +
 ```
 
 ```text
-[Next Level Password]: pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -174,7 +174,7 @@ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} +
 ```
 
 ```text
-[Next Level Password]: Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -189,7 +189,7 @@ grep "millionth" data.txt | awk '{print $2}'
 ```
 
 ```text
-[Next Level Password]: VR1ljMayciFxbnUokuQmJFw6QC9VKtub
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -204,7 +204,7 @@ sort data.txt | uniq -u
 ```
 
 ```text
-[Next Level Password]: EjmOSvuAu7sGAHqHVcBDPirRe9T03kxl
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -219,7 +219,7 @@ strings data.txt | grep "===" | tail -n 1 | awk -F '=' '{print $NF}' | tr -d ' '
 ```
 
 ```text
-[Next Level Password]: B0s2khmbT9u0geKuOoVGW3JZKhndE3BG
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -234,7 +234,7 @@ base64 -d data.txt
 ```
 
 ```text
-[Next Level Password]: pYfOY6HwUsDj5rL9UvyhU7MCmv8vN5Ro
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -249,7 +249,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
 ```text
-[Next Level Password]: GROozWPO8QyN0mGrjUkID0WCYkZiQxrN
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -297,7 +297,7 @@ cat data8
 ```
 
 ```text
-[Next Level Password]: qQYQiHOBPR8zR61qxYqX45quvihF2uzk
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -317,7 +317,7 @@ cat /etc/bandit_pass/bandit14
 ```
 
 ```text
-[Next Level Password]: f3NrmcAVtnoQOnKTahbtjqqfdVAgsbe2 (or pbLYuZtTg4MgaqfJx8jbA9gKKGqM68A7)
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -332,7 +332,7 @@ cat /etc/bandit_pass/bandit14 | nc localhost 30000
 ```
 
 ```text
-[Next Level Password]: pbLYuZtTg4MgaqfJx8jbA9gKKGqM68A7
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -345,11 +345,11 @@ cat /etc/bandit_pass/bandit14 | nc localhost 30000
 ```bash
 openssl s_client -connect localhost:30001 -quiet
 # Transmit bandit15 password:
-# pbLYuZtTg4MgaqfJx8jbA9gKKGqM68A7
+# REDACTED_PASSWORD
 ```
 
 ```text
-[Next Level Password]: kS0Hf0u5HiXFwKMKFqXvPdOTNGGa0X8V
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -367,7 +367,7 @@ openssl s_client -connect localhost:30001 -quiet
 nmap -sV -p 31000-32000 localhost
 
 # 2. Transmit credentials to TLS service on Port 31790
-echo "kS0Hf0u5HiXFwKMKFqXvPdOTNGGa0X8V" | openssl s_client -connect localhost:31790 -quiet > /tmp/bandit17.key
+echo "password_text_format" | openssl s_client -connect localhost:31790 -quiet > /tmp/bandit17.key
 
 # 3. Secure Key Permissions & Connect
 chmod 600 /tmp/bandit17.key
@@ -386,7 +386,7 @@ diff passwords.old passwords.new | grep ">" | awk '{print $2}'
 ```
 
 ```text
-[Next Level Password]: OQxXZjELndr90zuhOTDYBEomI0SZITXI
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -401,7 +401,7 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 ```
 
 ```text
-[Next Level Password]: KpsOfPkcP7i1FlIExk2QEjyt6dw8dxZI
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -416,7 +416,7 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 ```
 
 ```text
-[Next Level Password]: 4pIjcunZ0fK2vmp3IwfG8Vf7VhxD6pOA
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -430,14 +430,14 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
 
 ```bash
 # Terminal 1 / Background Process:
-echo "4pIjcunZ0fK2vmp3IwfG8Vf7VhxD6pOA" | nc -lvnp 8080 &
+echo "password_text_format" | nc -lvnp 8080 &
 
 # Terminal 2 / Foreground Invocation:
 ./suconnect 8080
 ```
 
 ```text
-[Next Level Password]: bW9kBv5WC3P4yoDyf12LSdGuNz5ka6hY
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -460,7 +460,7 @@ cat /tmp/t7O6lds9S0RqQh9aMcz6ShxxAoZKFflq
 ```
 
 ```text
-[Next Level Password]: RYVux2rHEm9tiXHmLFzuR7Vhx6AZQMEz
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -483,7 +483,7 @@ cat /tmp/$mytarget
 ```
 
 ```text
-[Next Level Password]: gKXDTAXnIz3OBxiPjRZ2uqutUlPZrBsw
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -511,7 +511,7 @@ cat /tmp/iw_pwn/flag.txt
 ```
 
 ```text
-[Next Level Password]: hVQMk3lJNsmQ7VF3ubyrNNBom7BOgVXv
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -523,12 +523,12 @@ cat /tmp/iw_pwn/flag.txt
 
 ```bash
 for pin in {0000..9999}; do
-    echo "hVQMk3lJNsmQ7VF3ubyrNNBom7BOgVXv $pin"
+    echo "password_text $pin"
 done | nc localhost 30002 | grep -v "Wrong"
 ```
 
 ```text
-[Next Level Password]: SoHfqMOEqIX2IYKVciZxvgpR9a2Djx4P
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -552,7 +552,7 @@ cat /etc/bandit_pass/bandit26
 ```
 
 ```text
-[Next Level Password]: jHdv2ELQhT22BkprMNDjybZDAkw1zeBJ
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -567,7 +567,7 @@ cat /etc/bandit_pass/bandit26
 ```
 
 ```text
-[Next Level Password]: STJLJBRRphMxKB392CT4iOr5CbzPU9ER
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -580,13 +580,13 @@ cat /etc/bandit_pass/bandit26
 ```bash
 mkdir /tmp/repo_28 && cd /tmp/repo_28
 git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
-# Password: STJLJBRRphMxKB392CT4iOr5CbzPU9ER
+# Password: REDACTED_PASSWORD
 
 cat repo/README.md
 ```
 
 ```text
-[Next Level Password]: y8Yd2ssKcpHpud7UvOSOxwamRMzIGIeQ
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -603,7 +603,7 @@ git log -p -2
 ```
 
 ```text
-[Next Level Password]: Em7eGtqaMySwNFjCpwzzHhLhospOcdt0
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -621,7 +621,7 @@ cat README.md
 ```
 
 ```text
-[Next Level Password]: jq9Dfg2rXsfYsWMgFuKlXhphjdH7USgX
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -638,7 +638,7 @@ git show secret
 ```
 
 ```text
-[Next Level Password]: 82NkymblpGBYmIXG6ZQ8YldBYstHpfUf
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -654,11 +654,11 @@ echo "May I come in?" > key.txt
 git add -f key.txt
 git commit -m "Bypass gitignore"
 git push origin master
-# Password: 82NkymblpGBYmIXG6ZQ8YldBYstHpfUf
+# Password: REDACTED_PASSWORD
 ```
 
 ```text
-[Next Level Password]: pWuj5jBQ6IgV0NXwiH6g1pXRF8S1YvbT
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
@@ -677,7 +677,7 @@ cat /etc/bandit_pass/bandit33
 ```
 
 ```text
-[Next Level Password]: u4P2CyPOwPGLe94RdD9Uo2FxFwvnFswM
+[Next Level Password]: REDACTED_PASSWORD
 ```
 
 ---
