@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+//header files
 
 int main()
 {
@@ -51,3 +52,6 @@ int main()
 
     return 0;
 }
+
+// program ended 
+//iwcyberops
