@@ -46,14 +46,14 @@ Every project in this module is engineered from the ground up without relying on
 
 | Module | Operational Domain | Key Engineered Artifacts | Code Directory |
 | :---: | :--- | :--- | :---: |
-| **M01** | **Linux Automation & Lab Engineering** | Automated dual-NIC VM deployment engines, SUID artifact scanners, process monitoring daemons. | [`/m01-linux-automation/`](./m01-linux-automation/) |
-| **M02** | **Network Protocols & Packet Dissection** | Raw socket packet sniffers in Python, manual hex dump decoders, TCP flag analyzers. | [`/m02-network-protocols-traffic/`](./m02-network-protocols-traffic/) |
-| **M03** | **Security Automation with Python** | Asynchronous multi-threaded port scanners, network banner grabbers, binary `struct` packers. | [`/m03-python-security-automation/`](./m03-python-security-automation/) |
-| **M04** | **OS Internals & Process Management** | Custom UNIX command shell in C (`fork`/`execve`/pipes), live `/proc/[pid]/maps` memory extractors. | [`/m04-os-internals-virtual-memory/`](./m04-os-internals-virtual-memory/) |
-| **M05** | **Applied Cryptography & Web Engines** | Multi-threaded HTTP/1.0 socket server in C, private enterprise PKI & Certificate Authority suite. | [`/m05-applied-crypto-compilers/`](./m05-applied-crypto-compilers/) |
-| **M06** | **Linux Privilege Escalation & Audit** | Automated Linux capability checkers (`cap_setuid`), Sudoers wildcard parsers, LPE testbeds. | [`/m06-linux-privesc-debugging/`](./m06-linux-privesc-debugging/) |
-| **M07** | **Server-Side Web Vulnerability Exploitation** | Asynchronous blind SQLi binary search extraction engines, deliberately vulnerable polyglot testbeds. | [`/m07-server-side-web-security/`](./m07-server-side-web-security/) |
-| **M08** | **Systems C & Foundation Capstone** | High-concurrency multithreaded network daemon in C, native 64-bit ELF binary header & symbol parser. | [`/m08-systems-c-foundations-capstone/`](./m08-systems-c-foundations-capstone/) |
+| **M01** | **Linux Automation & Lab Engineering** | Automated dual-NIC VM deployment engines, SUID artifact scanners, process monitoring daemons. | [`/01-linux-automation/`](./01-linux-automation/) |
+| **M02** | **Network Protocols & Packet Dissection** | Raw socket packet sniffers in Python, manual hex dump decoders, TCP flag analyzers. | [`/02-network-protocols-traffic/`](./02-network-protocols-traffic/) |
+| **M03** | **Security Automation with Python** | Asynchronous multi-threaded port scanners, network banner grabbers, binary `struct` packers. | [`/03-python-security-automation/`](./03-python-security-automation/) |
+| **M04** | **OS Internals & Process Management** | Custom UNIX command shell in C (`fork`/`execve`/pipes), live `/proc/[pid]/maps` memory extractors. | [`/04-os-internals-virtual-memory/`](./04-os-internals-virtual-memory/) |
+| **M05** | **Applied Cryptography & Web Engines** | Multi-threaded HTTP/1.0 socket server in C, private enterprise PKI & Certificate Authority suite. | [`/05-applied-crypto-compilers/`](./05-applied-crypto-compilers/) |
+| **M06** | **Linux Privilege Escalation & Audit** | Automated Linux capability checkers (`cap_setuid`), Sudoers wildcard parsers, LPE testbeds. | [`/06-linux-privesc-debugging/`](./06-linux-privesc-debugging/) |
+| **M07** | **Server-Side Web Vulnerability Exploitation** | Asynchronous blind SQLi binary search extraction engines, deliberately vulnerable polyglot testbeds. | [`/07-server-side-web-security/`](./07-server-side-web-security/) |
+| **M08** | **Systems C & Foundation Capstone** | High-concurrency multithreaded network daemon in C, native 64-bit ELF binary header & symbol parser. | [`/08-systems-c-foundations-capstone/`](./08-systems-c-foundations-capstone/) |
 
 ---
 
