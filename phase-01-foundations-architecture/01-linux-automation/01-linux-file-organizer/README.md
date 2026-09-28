@@ -116,6 +116,9 @@ In digital forensics and offensive staging:
 2. **Payload & Wordlist Segregation:** Cleans up centralized C2 and staging directories during active multi-target engagements.
 
 ---
+<br>
+
+**Maintained & Engineered by IW Cyber Ops | High-Assurance Cyber Operations & Systems Engineering**
 
 <!-- =========================================================================
    [IW CYBER OPS] - INTERNAL RESEARCH USE ONLY
