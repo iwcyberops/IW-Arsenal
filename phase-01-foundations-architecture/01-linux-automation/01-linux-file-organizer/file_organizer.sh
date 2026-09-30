@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Linux File Organizer Script
+# Linux File Organizer v1
 
 shopt -s nullglob
 
@@ -68,3 +68,4 @@ echo "--------------------------------"
 
 
 #Completed!
+# IW Cyber Ops
