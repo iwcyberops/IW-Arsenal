@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Text to ASCII Converter Script
+# Text to ASCII Converter - v1
 
 if [ "$#" -eq 0 ]; then
     echo "Usage: $0 <text | file>"
