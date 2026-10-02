@@ -25,7 +25,7 @@ elif [ -z "$(find "$path" -maxdepth 1 ! -type d)" ]; then
   echo "-------------------------------------------------------------"
 	exit 1
 elif [ ! -z "$(find "$path" -maxdepth 1 -type f)" ]; then
-	printf "Arranging Your Files....."
+	printf "Arranging Your Files.....\n\n"
 	sleep 1s;
 	find "$path" -maxdepth 1 -type f -print0 | while IFS= read -r -d '' file; do
 		shopt -s nocasematch
@@ -63,7 +63,7 @@ elif [ ! -z "$(find "$path" -maxdepth 1 -type f)" ]; then
 fi
 
 echo "--------------------------------"
-printf "File's Arrangement Completed!"
+printf "File's Arrangement Completed!\n"
 echo "--------------------------------"
 
 
