@@ -8,6 +8,7 @@ printf "\033[1;92m==================================\033[0;m\n\n"
 
 printf "\033[1;31mSYSTEM\033[0;m\n"
 printf "\033[1;31m----------------------------------\033[0;m\n"
+
 HOSTNAME=$(hostname)
 OS=$(cat /etc/os-release | grep -Ei "^(name)" | cut -d "=" -f2 | tr -d '"')
 KERNEL=$(uname -s)
@@ -16,17 +17,13 @@ ARCH=$(hostnamectl | grep -i "architecture" | cut -d: -f2 2>/dev/null)
 UTIME=$(uptime | awk '{print $3}' | tr -d ',' 2>/dev/null)
 CHASSIS=$(hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | tr -d ' ')
 HDW_MODEL=$(hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | tr -d ' ')
+
 printf "Hostname         :%s\n" "$HOSTNAME"
 printf "Operating System :%s\n" "$OS"
-
 printf "Kernel           :%s\nKernel Release   :%s\n" "$KERNEL $K_VERSION"
-
 printf "Architecture     :%s\n" "$ARCH"
-
 printf "Uptime           :%s\n" "$UTIME"
-
 printf "Chassis          :%s\n" "$CHASSIS"
-
 printf "Hardware Model   :%s\n\n" "$HDW_MODEL"
 
 printf "\033[1;31mUSER \033[0;m\n"
@@ -35,6 +32,7 @@ printf "\033[1;31m----------------------------------\033[0;m\n"
 USERNAME=$(whoami)
 UID=$(id -u)
 GID=$(id -g)
+
 printf "Username         :%s\n" "$USERNAME"
 printf "UID              :%s\n" "$UID"
 printf "GID              :%s\n\n" "$GID"
@@ -68,6 +66,7 @@ ROOT=$(df -h / | awk 'NR==2 {print $1}')
 TOTAL=$(df -h / | awk 'NR==2 {print $2}')
 USE=$(df -h / | awk 'NR==2 {print $3,$5}')
 FREE=$(df -h / | awk 'NR==2 {print $4}')
+
 printf "Root Filesystem  : $ROOT\n"
 printf "Partition Space  : $TOTAL\n"
 printf "Usage            : %s\n" "$USE"
@@ -79,6 +78,7 @@ printf "\033[1;31m----------------------------------\033[0;m\n"
 INTERFACES=$(ip -br addr | awk '$1 != "lo" {print $1}' | tr "\n" " ")
 IP_ADDR=$(hostname -I)
 MAC_ADDR=$(ip -br link | grep -i "eth0" |awk '$1 != "lo" {print $3}')
+
 printf "Interfaces       : %s\n" "$INTERFACES"
 printf "Ip Address       : %s\n" "$IP_ADDR"
 printf "Mac Address      : %s\n" "$MAC_ADDR"
