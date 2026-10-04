@@ -23,10 +23,10 @@ HOSTNAME=$(hostname)
 OS_NAME=$(cat /etc/os-release | grep -Ei "^(name)" | cut -d "=" -f2 | tr -d '"')
 KERNEL=$(uname -s)
 K_VERSION=$(uname -r)
-ARCH=$(hostnamectl | grep -i "architecture" | cut -d: -f2 | awk '$1=$1' 2>/dev/null)
+ARCH=$(uname -m)
 UTIME=$(uptime -p | cut -d ' ' -f2- 2>/dev/null)
-CHASSIS=$(hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | awk '$1=$1')
-HDW_MODEL=$(hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | awk '$1=$1')
+CHASSIS=$((hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | awk '$1=$1') || printf " %s\n" "Not Found")
+HDW_MODEL=$((hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | awk '$1=$1') || printf "%s\n" "Not Found")
 
 printf "${GREEN}Hostname         : ${RESET}${CYAN}%s${RST_CYAN}\n" "$HOSTNAME"
 printf "${GREEN}Operating System : ${RESET}${CYAN}%s${RST_CYAN}\n" "$OS_NAME"
@@ -73,14 +73,12 @@ printf "${GREEN}Available Ram    : ${RESET}${CYAN}%s${RST_CYAN}\n\n" "$AVAIL_R"
 printf "${RED}STORAGE${RESET}\n"
 printf "${RED}----------------------------------${RESET}\n"
 
-ROOT=$(df -h / | awk 'NR==2 {print $1}')
-TOTAL=$(df -h / | awk 'NR==2 {print $2}')
-USE=$(df -h / | awk 'NR==2 {print $3,$5}')
-FREE=$(df -h / | awk 'NR==2 {print $4}')
+read -r ROOT TOTAL USED FREE USE_PCT _ < <(df -h / | awk 'NR==2 {print $1, $2, $3, $4, $5}')
 
 printf "${GREEN}Root Filesystem  : ${RESET}${CYAN}%s${RST_CYAN}\n" "$ROOT"
 printf "${GREEN}Partition Space  : ${RESET}${CYAN}%s${RST_CYAN}\n" "$TOTAL"
-printf "${GREEN}Usage            : ${RESET}${CYAN}%s${RST_CYAN}\n" "$USE"
+printf "${GREEN}Usage            : ${RESET}${CYAN}%s${RST_CYAN}\n" "$USE_PCT"
+printf "${GREEN}Used             : ${RESET}${CYAN}%s${RST_CYAN}\n" "$USED"
 printf "${GREEN}Free Space       : ${RESET}${CYAN}%s${RST_CYAN}\n\n" "$FREE"
 
 printf "${RED}NETWORK${RESET}\n"
