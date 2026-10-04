@@ -15,8 +15,8 @@ KERNEL=$(uname -s)
 K_VERSION=$(uname -r)
 ARCH=$(hostnamectl | grep -i "architecture" | cut -d: -f2 | awk '$1=$1' 2>/dev/null)
 UTIME=$(uptime -p | cut -d ' ' -f2- 2>/dev/null)
-CHASSIS=$(hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | tr -d ' ')
-HDW_MODEL=$(hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | tr -d ' ')
+CHASSIS=$(hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | awk '$1=$1')
+HDW_MODEL=$(hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | awk '$1=$1')
 
 printf "Hostname         : %s\n" "$HOSTNAME"
 printf "Operating System : %s\n" "$OS_NAME"
