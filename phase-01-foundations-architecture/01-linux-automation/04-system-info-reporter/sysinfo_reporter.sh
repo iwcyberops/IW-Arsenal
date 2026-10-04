@@ -77,11 +77,13 @@ printf "\033[1;31mNETWORK\033[0;m\n"
 printf "\033[1;31m----------------------------------\033[0;m\n"
 
 INTERFACES=$(ip -br addr | awk '$1 != "lo" {print $1}' | tr "\n" " ")
-IP_ADDR=$(hostname -I)
-MAC_ADDR=$(ip -br link | grep -i "eth0" |awk '$1 != "lo" {print $3}')
+LOCAL_IP_ADDR=$(hostname -I)
+PUBLIC_IP=$((curl -6 -sf icanhazip.com || curl -4 -sf icanhazip.com) || printf '%s\n' "Couldn't Get Public Ip Address")
+MAC_ADDR=$(ip -br link | awk '$1 != "lo" {print $3; exit}')
 
 printf "Interfaces       : %s\n" "$INTERFACES"
-printf "Ip Address       : %s\n" "$IP_ADDR"
+printf "Local Ip Address : %s\n" "$LOCAL_IP_ADDR"
+printf "Public IP        : %s\n" "$PUBLIC_IP"
 printf "Mac Address      : %s\n\n" "$MAC_ADDR"
 
 printf "\033[1;92m==================================\033[0;m\n"
