@@ -2,12 +2,20 @@
 
 # System Information Reporter - v1
 
-printf "\033[1;92m==================================\033[0;m\n"
-printf "     Linux System Information     \n"
-printf "\033[1;92m==================================\033[0;m\n\n"
+#COLORS
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+L_GREEN='\033[1;92m'
+L_RED='\033[1;91m'
+RESET='\033[0m'
 
-printf "\033[1;31mSYSTEM\033[0;m\n"
-printf "\033[1;31m----------------------------------\033[0;m\n"
+printf "\n"
+printf "${L_GREEN}==================================${RESET}\n"
+printf "${L_RED}     Linux System Information     ${RESET}\n"
+printf "${L_GREEN}==================================${RESET}\n\n"
+
+printf "${RED}SYSTEM${RESET}\n"
+printf "${RED}----------------------------------${RESET}\n"
 
 HOSTNAME=$(hostname)
 OS_NAME=$(cat /etc/os-release | grep -Ei "^(name)" | cut -d "=" -f2 | tr -d '"')
@@ -18,77 +26,77 @@ UTIME=$(uptime -p | cut -d ' ' -f2- 2>/dev/null)
 CHASSIS=$(hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | awk '$1=$1')
 HDW_MODEL=$(hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | awk '$1=$1')
 
-printf "Hostname         : %s\n" "$HOSTNAME"
-printf "Operating System : %s\n" "$OS_NAME"
-printf "Kernel           : %s\n" "$KERNEL"
-printf "Kernel Version   : %s\n" "$K_VERSION"
-printf "Architecture     : %s\n" "$ARCH"
-printf "Uptime           : %s\n" "$UTIME"
-printf "Chassis          : %s\n" "$CHASSIS"
-printf "Hardware Model   : %s\n\n" "$HDW_MODEL"
+printf "${GREEN}Hostname         : ${RESET}%s\n" "$HOSTNAME"
+printf "${GREEN}Operating System : ${RESET}%s\n" "$OS_NAME"
+printf "${GREEN}Kernel           : ${RESET}%s\n" "$KERNEL"
+printf "${GREEN}Kernel Version   : ${RESET}%s\n" "$K_VERSION"
+printf "${GREEN}Architecture     : ${RESET}%s\n" "$ARCH"
+printf "${GREEN}Uptime           : ${RESET}%s\n" "$UTIME"
+printf "${GREEN}Chassis          : ${RESET}%s\n" "$CHASSIS"
+printf "${GREEN}Hardware Model   : ${RESET}%s\n\n" "$HDW_MODEL"
 
-printf "\033[1;31mUSER \033[0;m\n"
-printf "\033[1;31m----------------------------------\033[0;m\n"
+printf "${RED}USER ${RESET}\n"
+printf "${RED}----------------------------------${RESET}\n"
 
 USERNAME=$(whoami)
 U_ID=$(id -u)
 G_ID=$(id -g)
 
-printf "Username         : %s\n" "$USERNAME"
-printf "UID              : %s\n" "$U_ID"
-printf "GID              : %s\n\n" "$G_ID"
+printf "${GREEN}Username         : ${RESET}%s\n" "$USERNAME"
+printf "${GREEN}UID              : ${RESET}%s\n" "$U_ID"
+printf "${GREEN}GID              : ${RESET}%s\n\n" "$G_ID"
 
-printf "\033[1;31mCPU\033[0;m\n"
-printf "\033[1;31m----------------------------------\033[0;m\n"
+printf "${RED}CPU${RESET}\n"
+printf "${RED}----------------------------------${RESET}\n"
 
 MODEL=$(lscpu | grep -i "model name" | cut -d: -f2 | awk '$1=$1')
 CORES=$(lscpu | grep -Ei "^(core)" | cut -d: -f2 | tr -d ' ')
 THREADS=$(nproc)
 
-printf "Model            : %s\n" "$MODEL"
-printf "CPU Cores        : %s\n" "$CORES"
-printf "CPU Threads      : %s\n\n" "$THREADS"
+printf "${GREEN}Model            : ${RESET}%s\n" "$MODEL"
+printf "${GREEN}CPU Cores        : ${RESET}%s\n" "$CORES"
+printf "${GREEN}CPU Threads      : ${RESET}%s\n\n" "$THREADS"
 
-printf "\033[1;31mMEMORY\033[0;m\n"
-printf "\033[1;31m----------------------------------\033[0;m\n"
+printf "${RED}MEMORY${RESET}\n"
+printf "${RED}----------------------------------${RESET}\n"
 
 TOTAL_R=$(free -h | awk '/^Mem:/ {print $2}')
 USED_R=$(free -h | grep -i "mem" | awk '{print $3}')
 AVAIL_R=$(free -h | grep -i "mem" | awk '{print $7}')
 
-printf "Total RAM        : %s\n" "$TOTAL_R"
-printf "Used RAM         : %s\n" "$USED_R"
-printf "Available Ram    : %s\n\n" "$AVAIL_R"
+printf "${GREEN}Total RAM        : ${RESET}%s\n" "$TOTAL_R"
+printf "${GREEN}Used RAM         : ${RESET}%s\n" "$USED_R"
+printf "${GREEN}Available Ram    : ${RESET}%s\n\n" "$AVAIL_R"
 
-printf "\033[1;31mSTORAGE\033[0;m\n"
-printf "\033[1;31m----------------------------------\033[0;m\n"
+printf "${RED}STORAGE${RESET}\n"
+printf "${RED}----------------------------------${RESET}\n"
 
 ROOT=$(df -h / | awk 'NR==2 {print $1}')
 TOTAL=$(df -h / | awk 'NR==2 {print $2}')
 USE=$(df -h / | awk 'NR==2 {print $3,$5}')
 FREE=$(df -h / | awk 'NR==2 {print $4}')
 
-printf "Root Filesystem  : %s\n" "$ROOT"
-printf "Partition Space  : %s\n" "$TOTAL"
-printf "Usage            : %s\n" "$USE"
-printf "Free Space       : %s\n\n" "$FREE"
+printf "${GREEN}Root Filesystem  : ${RESET}%s\n" "$ROOT"
+printf "${GREEN}Partition Space  : ${RESET}%s\n" "$TOTAL"
+printf "${GREEN}Usage            : ${RESET}%s\n" "$USE"
+printf "${GREEN}Free Space       : ${RESET}%s\n\n" "$FREE"
 
-printf "\033[1;31mNETWORK\033[0;m\n"
-printf "\033[1;31m----------------------------------\033[0;m\n"
+printf "${RED}NETWORK${RESET}\n"
+printf "${RED}----------------------------------${RESET}\n"
 
 INTERFACES=$(ip -br addr | awk '$1 != "lo" {print $1}' | tr "\n" " ")
 LOCAL_IP_ADDR=$(hostname -I)
 PUBLIC_IP=$((curl -6 -sf icanhazip.com || curl -4 -sf icanhazip.com) || printf '%s\n' "Couldn't Get Public Ip Address")
 MAC_ADDR=$(ip -br link | awk '$1 != "lo" {print $3; exit}')
 
-printf "Interfaces       : %s\n" "$INTERFACES"
-printf "Local Ip Address : %s\n" "$LOCAL_IP_ADDR"
-printf "Public IP        : %s\n" "$PUBLIC_IP"
-printf "Mac Address      : %s\n\n" "$MAC_ADDR"
+printf "${GREEN}Interfaces       : ${RESET}%s\n" "$INTERFACES"
+printf "${GREEN}Local Ip Address : ${RESET}%s\n" "$LOCAL_IP_ADDR"
+printf "${GREEN}Public IP        : ${RESET}%s\n" "$PUBLIC_IP"
+printf "${GREEN}Mac Address      : ${RESET}%s\n\n" "$MAC_ADDR"
 
-printf "\033[1;92m==================================\033[0;m\n"
-printf "     Report Completed     \n"
-printf "\033[1;92m==================================\033[0;m\n\n"
+printf "${L_GREEN}==================================${RESET}\n"
+printf "${L_RED}         Report Completed         ${RESET}\n"
+printf "${L_GREEN}==================================${RESET}\n\n"
 
 # Completed!
 # IW Cyber Ops
