@@ -2,7 +2,8 @@
 
 # System Information Reporter - v1
 
-#COLORS
+# COLORS
+
 GREEN='\033[1;32m'
 RED='\033[1;31m'
 CYAN='\e[0;96m'
@@ -25,8 +26,8 @@ KERNEL=$(uname -s)
 K_VERSION=$(uname -r)
 ARCH=$(uname -m)
 UTIME=$(uptime -p | cut -d ' ' -f2- 2>/dev/null)
-CHASSIS=$((hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | awk '$1=$1') || printf " %s\n" "Not Found")
-HDW_MODEL=$((hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | awk '$1=$1') || printf "%s\n" "Not Found")
+CHASSIS=$( (hostnamectl | grep -E -i "(chassis:)" | cut -d: -f2 | awk '$1=$1') || printf " %s\n" "Not Found")
+HDW_MODEL=$( (hostnamectl | grep -i "Hardware Model" | cut -d: -f2 | awk '$1=$1') || printf "%s\n" "Not Found")
 
 printf "${GREEN}Hostname         : ${RESET}${CYAN}%s${RST_CYAN}\n" "$HOSTNAME"
 printf "${GREEN}Operating System : ${RESET}${CYAN}%s${RST_CYAN}\n" "$OS_NAME"
@@ -86,7 +87,7 @@ printf "${RED}----------------------------------${RESET}\n"
 
 INTERFACES=$(ip -br addr | awk '$1 != "lo" {print $1}' | tr "\n" " ")
 LOCAL_IP_ADDR=$(hostname -I)
-PUBLIC_IP=$((curl -6 -sf icanhazip.com || curl -4 -sf icanhazip.com) || printf '%s\n' "Couldn't Get Public Ip Address")
+PUBLIC_IP=$( (curl -6 -sf icanhazip.com || curl -4 -sf icanhazip.com) || printf '%s\n' "Couldn't Get Public Ip Address")
 MAC_ADDR=$(ip -br link | awk '$1 != "lo" {print $3; exit}')
 
 printf "${GREEN}Interfaces       : ${RESET}${CYAN}%s${RST_CYAN}\n" "$INTERFACES"
